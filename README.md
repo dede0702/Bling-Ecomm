@@ -1,12 +1,16 @@
 Alan de Souza Maximiano - RM557088
+
 André Rovai Jr          - RM555848
+
 Pedro Henrique Conte    - RM554987
+
 Lancelot Chagas         - RM554707
+
 Kauan Alves             - RM555082
 
-Checkpoint Computational Thinking Using Python
 
-Criar um sistema gerenciador de loja de varejo com gestão de estoque de produtos
+
+#Criar um sistema gerenciador de loja de varejo com gestão de estoque de produtos
 
 ✅1. Cadastro de Produtos
 • Nome do Produto: Campo para armazenar o nome do produto.
