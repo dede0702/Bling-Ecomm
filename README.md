@@ -10,7 +10,7 @@ Kauan Alves             - RM555082
 
 
 
-#Criar um sistema gerenciador de loja de varejo com gestão de estoque de produtos
+Criar um sistema gerenciador de loja de varejo com gestão de estoque de produtos
 
 ✅1. Cadastro de Produtos
 • Nome do Produto: Campo para armazenar o nome do produto.
