@@ -9,35 +9,74 @@ Lancelot Chagas         - RM554707
 Kauan Alves             - RM555082
 
 
+# Sistema de Gestão de Estoque e Vendas
 
-Criar um sistema gerenciador de loja de varejo com gestão de estoque de produtos
+Este projeto é uma aplicação web desenvolvida em Flask para gerenciar inventário e vendas de produtos. A aplicação permite autenticação de usuários, manipulação de produtos e emissão de relatórios de estoque, além de estar preparada para futuras melhorias, incluindo um aplicativo móvel para leitura de código de barras.
 
-✅1. Cadastro de Produtos
+## Funcionalidades Principais
 
-• Nome do Produto: Campo para armazenar o nome do produto.
+- *Autenticação de Usuários:*
+  - Login seguro com hashing de senhas.
+  - Registro de novos usuários com verificação de e-mail duplicado.
 
-• Código do Produto: Um código único para identificar o produto.
+- *Gestão de Produtos:*
+  - Visualização, adição, edição e exclusão de produtos.
+  - Manutenção de histórico de preços e controle de mínimas quantidades de estoque.
 
-• Categoria: Categorias como "eletrônicos", "vestuário", etc.
+- *Controle de Estoque:*
+  - Registro de vendas de produtos com ajuste automático de inventário.
+  - Alertas para produtos com estoque baixo de acordo com um mínimo estipulado.
 
-• Quantidade em Estoque: Campo para armazenar a quantidade disponível no estoque.
+- *Relatórios e Exportações:*
+  - Emissão de relatórios de produtos e vendas em formato CSV.
 
-• Preço: Preço de venda do produto.
+## Melhorias Planejadas
 
-• Descrição: Detalhes adicionais sobre o produto.
+### 1. Integração com Código de Barras
 
-• Fornecedor: Informações sobre o fornecedor do produto.
+- *Aplicativo Móvel:*
+  - Desenvolvimento de um app móvel para leitura de códigos de barras usando Flutter ou React Native.
+  - Comunicação via API com o backend para atualização de estoque em tempo real.
 
+- *Compatibilidade com Dispositivos USB:*
+  - Suporte para leitores de código de barras USB usados em desktop.
 
+### 2. Segurança e Gestão de Usuários
 
-✅2. Gestão de Estoque
+- *OAuth/ JWT Autenticação:*
+  - Implementação de sistemas de token para melhor segurança.
+  - Gerenciamento de permissões para controle de acesso baseado em funções de usuário.
 
-• Adicionar ao Estoque: Funcionalidade para aumentar a quantidade de um produto no estoque.
+### 3. Experiência de Usuário
 
-• Remover do Estoque: Funcionalidade para reduzir a quantidade de um produto no estoque.
+- *Redesign de UI/UX:*
+  - Atualização do design visual para melhorar a usabilidade.
+  - Garantia de que a aplicação é totalmente responsiva.
 
-• Atualização de Estoque: Possibilidade de ajustar manualmente a quantidade de produtos.
+### 4. Dados e Relatórios
 
-• Alerta de Estoque Baixo: Sistema de notificação quando a quantidade de um produto atinge um nível mínimo
-predefinido.
+- *Banco de Dados Relacional:*
+  - Migração para banco de dados como PostgreSQL para melhor escalabilidade e performance.
 
+- *Relatórios Detalhados:*
+  - Funcionalidades avançadas para criação de relatórios customizados.
+
+ 5. Automação e Notificações
+
+- *Alertas de Estoque:*
+  - Notificação por e-mail ou push para produtos com estoque abaixo do mínimo desejado.
+
+- *Integração com Fornecedores:*
+  - APIs para atualização automática de inventário e preços.
+
+Como Contribuir
+
+1. Faça um fork do repositório.
+2. Crie uma nova branch para sua funcionalidade (git checkout -b sua-feature).
+3. Commit suas alterações (git commit -m 'Descrição das mudanças').
+4. Faça o push para a branch (git push origin sua-feature).
+5. Abra um Pull Request.
+
+## Licença
+
+Este projeto está licenciado sob a licença MIT - veja o arquivo [LICENSE](LICENSE) para mais detalhes.
