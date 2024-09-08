@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestão de Produtos</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .estoque-baixo {
+            color: red;
+            font-weight: bold;
+        }
+        .estoque-ok {
+            color: green;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">Gestão de Produtos</h1>
+
+        <!-- Botão para voltar ao painel -->
+        <div class="mb-4 text-center">
+            <a href="{{ url_for('index') }}" class="btn btn-secondary">Voltar ao Painel</a>
+            <a href="{{ url_for('emitir_csv') }}" class="btn btn-info">Emitir CSV</a>
+            <a href="{{ url_for('adicionar_produto') }}" class="btn btn-success">Adicionar Produto</a> <!-- Novo botão -->
+        </div>
+
+        <!-- Tabela de Produtos -->
+        <div class="table-responsive">
+            <table class="table table-striped table-bordered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Produto</th>
+                        <th>Código do Produto</th> <!-- Nova coluna -->
+                        <th>Descrição</th> <!-- Nova coluna -->
+                        <th>Quantidade</th>
+                        <th>Valor Unitário</th>
+                        <th>Categoria</th>
+                        <th>Marca</th>
+                        <th>Característica</th> <!-- Alterada para mostrar característica -->
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for produto in vendas %}
+                    <tr>
+                        <td>
+                            <!-- Verifica o status do estoque e exibe o círculo de acordo -->
+                            {% if produto.status_estoque == 'baixo' %}
+                                <span class="estoque-baixo">&#x25CF;</span> <!-- Círculo vermelho -->
+                            {% else %}
+                                <span class="estoque-ok">&#x25CF;</span> <!-- Círculo verde -->
+                            {% endif %}
+                            {{ produto['Produto'] }}
+                        </td>
+                        <td>{{ produto['Código do Produto'] }}</td> <!-- Nova coluna -->
+                        <td>{{ produto['Descrição'] }}</td> <!-- Nova coluna -->
+                        <td>{{ produto['Quantidade'] }}</td>
+                        <td>{{ produto['Valor Unitário'] }}</td>
+                        <td>{{ produto['Categoria'] }}</td>
+                        <td>{{ produto['Marca'] }}</td>
+                        <td>{{ produto['Característica'] }}</td> <!-- Corrigido para mostrar Característica -->
+                        <td>
+                            <a href="{{ url_for('editar_produto', produto_nome=produto['Produto']) }}" class="btn btn-sm btn-primary">Editar</a>
+                            <form action="{{ url_for('alterar_preco') }}" method="post" style="display:inline;">
+                                <input type="hidden" name="codigo_produto" value="{{ produto['Código do Produto'] }}"> <!-- Certifique-se de usar código do produto -->
+                                <input type="text" name="novo_preco" placeholder="Novo Preço" required>
+                                <button type="submit" class="btn btn-sm btn-success">Alterar Preço</button>
+                            </form>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
